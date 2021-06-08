@@ -5,7 +5,7 @@ import os
 ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
-    from ._icsconfig import Config  # @rruuurr
+    from ._icsconfig import Config  # @S_X_X_G
 else:
     if os.path.exists("config.py"):
         from config import Development as Config  # Hey there
