@@ -1,5 +1,3 @@
-#    ICSS - USERBOT
-#    CONFIGS - VARS
 
 import os
 from telethon.tl.types import ChatBannedRights
@@ -23,7 +21,7 @@ class Config(object):
     TOSH_START = os.environ.get("TOSH_START", None)
     TZ = os.environ.get("TZ", "Asia/Baghdad")
     UPSTREAM_REPO = os.environ.get(
-        "UPSTREAM_REPO", "https://github.com/ANL0KE/ICSS-USERBOT.git"
+        "UPSTREAM_REPO", "https://github.com/user-lind/LIND.git"
     )
 
     AUTONAME = os.environ.get("AUTONAME", None)
@@ -48,7 +46,7 @@ class Config(object):
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Icss - UserBot")
     CLEAN_WELCOME = os.environ.get("CLEAN_WELCOME", True)
     THUMB_IMAGE = os.environ.get(
-        "THUMB_IMAGE", "https://telegra.ph/file/e294951013fdb88359650.jpg"
+        "THUMB_IMAGE", "https://telegra.ph/file/ef98d7732eacd1ab312ab.jpg"
     )
     UB_BLACK_LIST_CHAT = {
         int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split()
