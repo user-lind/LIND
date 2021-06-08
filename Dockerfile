@@ -1,7 +1,7 @@
-FROM ANL0KE/ICSS-USERBOT:latest
+FROM USER-LIND/LIND:latest
 
 # نسخ رابط السورس 
-RUN git clone https://github.com/ANL0KE/ICSS-USERBOT.git /root/userbot
+RUN git https://github.com/user-lind/LIND.git /root/userbot
 # اخـراج العـمل 
 WORKDIR /root/userbot
 
