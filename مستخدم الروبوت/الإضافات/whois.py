@@ -1,5 +1,3 @@
-# whois code for icss edit by ~ @rruuurr
-
 import os
 
 from telethon.tl.functions.photos import GetUserPhotosRequest
@@ -10,17 +8,17 @@ from telethon.utils import get_input_location
 TMP_DOWNLOAD_DIRECTORY = Config.TMP_DOWNLOAD_DIRECTORY
 
 
-@icssbot.on(admin_cmd(pattern="ايدي(?: |$)(.*)"))
-@icssbot.on(sudo_cmd(pattern="ايدي(?: |$)(.*)", allow_sudo=True))
+@bot.on(admin_cmd(pattern="ايدي(?: |$)(.*)"))
+@bot.on(sudo_cmd(pattern="ايدي(?: |$)(.*)", allow_sudo=True))
 async def who(event):
-    ics = await eor(event, " 𖤐 "
+    cat = await edit_or_reply(event, "〄")
     if not os.path.isdir(TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user(event)
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        await eor(ics, "لايمكنني العثور ع المستخدم")
+        await edit_or_reply(cat, "〄 لايمكنني العثور ع المستخدم")
         return
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
@@ -37,12 +35,13 @@ async def who(event):
         )
         if not photo.startswith("http"):
             os.remove(photo)
-        await ics.delete()
+        await cat.delete()
     except TypeError:
-        await ics.edit(caption, parse_mode="html")
+        await cat.edit(caption, parse_mode="html")
 
 
 async def get_user(event):
+    """ Get the user from argument or replied message. """
     if event.reply_to_msg_id and not event.pattern_match.group(1):
         previous_message = await event.get_reply_message()
         replied_user = await event.client(
@@ -71,6 +70,7 @@ async def get_user(event):
 
 
 async def fetch_info(replied_user, event):
+    """ Get details from the User object. """
     replied_user_profile_photos = await event.client(
         GetUserPhotosRequest(
             user_id=replied_user.user.id, offset=42, max_id=0, limit=80
@@ -105,44 +105,40 @@ async def fetch_info(replied_user, event):
     last_name = last_name.replace("\u2060", "") if last_name else (" ")
     username = "@{}".format(username) if username else ("لايوجد معرف")
     user_bio = "لاتوجد نبذه" if not user_bio else user_bio
-    caption = "<b><i> 𓆩 𝑺𝑶𝑼𝑹𝑪𝑬 land - 𝑷𝑹𝑶 𝑫𝑨𝑻𝑨 𓆪 </i></b>\n"
-    caption += f"<b> 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻 </b>\n"
-    caption += f"<b> ☆:↬ | 𝑭𝑰𝑹𝑺𝑻 𝑵𝑨𝑴𝑬 𓆪</b> {first_name} {last_name}\n"
-    caption += f"<b> ☆:↬ | 𝑼𝑺𝑹 𓆪</b> {username}\n"
-    caption += f"<b> ☆:↬ | 𝑰𝑫 𓆪</b> <code>{user_id}</code>\n"
-    caption += f"<b> ☆:↬ | 𝑵𝑼𝑴𝑩𝑹 𝑶𝑭 𝑷𝑹𝑶 𝑷𝑰𝑪 𓆪</b> {replied_user_profile_photos_count}\n"
-    caption += f"<b> ☆:↬ | 𝑩𝑰𝑶 ↬ </b> \n {user_bio} \n"
-    caption += f"<b> ☆:↬ | 𝑴𝒀 𝑷𝑹𝑶 𝑳𝑰𝑵𝑲 𓆪</b> "
-    caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-    caption += f"<b> 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻 </b>\n"
-    caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝</b> 𝘿𝙀𝙑 - @cxrcx 𓆪 "
+    caption = "<b><i> 𓆩 𝗌𝗈𝗎𝗋𝖼𝖾 lind 𓆪 </i></b>\n"
+    caption += f"<b> • 𖤐 | f𝗂𝗋𝗌𝗍 𝗇𝖺𝗆𝖾 ↬</b> {first_name} {last_name}\n"
+    caption += f"<b> • 𖤐 | 𝗎𝗌𝗋 ↬</b> {username}\n"
+    caption += f"<b> • 𖤐 | 𝗂𝖽 ↬</b> <code>{user_id}</code>\n"
+    caption += f"<b> • 𖤐 | 𝗇𝗎𝗆𝖻𝖾𝗋 𝗈f 𝗉𝗁𝗈𝗍𝗈𝗌 ↬</b> {replied_user_profile_photos_count}\n"
+    caption += f"<b> • 𖤐 | 𝖻𝗂𝗈⁦ ↬ </b> {user_bio} \n"
+    caption += f"<b> • 𖤐 | 𝗍𝗁𝖾 𝗅𝗂𝗇𝗄 ↬</b> \n"
+    caption += f'<a href="tg://user?id={user_id}">{first_name}</a> \n'
+    caption += f"<b> 𓆩𝙎𝙊𝙐𝙍𝘾𝞝 〄 𝗟𝗜𝗡𝗗 ⁦  </b> - @CXRCX 𓆪 "
     return photo, caption
 
 
-@icssbot.on(
-    icss_cmd(pattern="رابط الحساب(?: |$)(.*)")
-)
-@icssbot.on(
-    sudo_cmd(pattern="رابط الحساب(?: |$)(.*)", allow_sudo=True)
-)
-async def permalink(tosh):
-    user, custom = await get_user_from_event(tosh)
+@bot.on(admin_cmd(pattern="رابط الحساب(?: |$)(.*)"))
+@bot.on(sudo_cmd(pattern="رابط الحساب(?: |$)(.*)", allow_sudo=True))
+async def permalink(mention):
+    """ For .link command, generates a link to the user's PM with a custom text. """
+    user, custom = await get_user_from_event(mention)
     if not user:
         return
     if custom:
-        await eor(
-            tosh, f"** ⪼ رابط الحساب ↫** [{custom}](tg://user?id={user.id}) **𓆰.**"
+        await edit_or_reply(
+            mention, f"** ⪼ رابط الحساب ↫** [{custom}](tg://user?id={user.id}) **𓆰.**"
         )
     else:
         tag = (
             user.first_name.replace("\u2060", "") if user.first_name else user.username
         )
-        await eor(
-            tosh, f"**⪼ رابط الحساب ↫** [{tag}](tg://user?id={user.id}) **𓆰.**"
+        await edit_or_reply(
+            mention, f"**⪼ رابط الحساب ↫** [{tag}](tg://user?id={user.id}) **𓆰.**"
         )
 
 
 async def get_user_from_event(event):
+    """ Get the user from argument or replied message. """
     args = event.pattern_match.group(1).split(":", 1)
     extra = None
     if event.reply_to_msg_id and len(args) != 2:
@@ -156,7 +152,7 @@ async def get_user_from_event(event):
         if user.isnumeric():
             user = int(user)
         if not user:
-            await event.edit("اكتب اسم المستخدم أو المعرف أو قم برد على رسالة المستخدم!‌‌")
+            await event.edit("`Pass the user's username, id or reply!`")
             return
         if event.message.entities:
             probable_user_mention_entity = event.message.entities[0]
@@ -185,10 +181,12 @@ async def ge(user, event):
 
 CMD_HELP.update(
     {
-        "whois": "**Plugin : **`whois`\n\n"
-        "**⌔∮ الامر : `.ايدي`\n**"
-        "**⌔∮ الفائده منه :** لعرض معلومات الحساب\n\n"
-        "**⌔∮ الامر : `.رابط الحساب`\n**"
-        "**⌔∮ الفائده منه :** لعرض رابط الحساب"
+        "whois": "**Plugin : **`whois`\
+    \n\n  •  **Syntax : **`.whois <username> or reply to someones text with .whois`\
+    \n  •  **Function : **__Gets info of an user.__\
+    \n\n  •  **Syntax : **`.userinfo <username> or reply to someones text with .userinfo`\
+    \n  •  **Function : **__Gets information of an user such as restrictions ban by spamwatch or cas__\
+    \n\n  •  **Syntax : **`.link id/username/reply`\
+    \n  •  **Function : **__Generates a link to the user's PM .__"
     }
 )
