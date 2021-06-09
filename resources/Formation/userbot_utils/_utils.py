@@ -280,7 +280,7 @@ def errors_handler(func):
 
             pastelink = _format.paste_text(ftext)
             text = "𓆩 𝑺𝑶𝑼𝑹𝑪𝑬 𝑰𝑪𝑺𝑺 𝑬𝑹𝑹𝑶𝑹 𝑹𝑬𝑷𝑶𝑹𝑻 𓆪\n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧ𝐢𝐜𝐬𝐬ⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n\n"
-            link = "[مطور اكسس](https://t.me/rruuurr)"
+            link = "[مطور اكسس](https://t.me/cxrcx)"
             text += "- إذا كنت تريد أن تتمكن من الإبلاغ عن المشكله"
             text += f"- فقط قم بتوجيه هذا الرساله الى {link}.\n"
             text += "- لا يوجد شيء مسجل باستثناء حقيقة الخطأ والتاريخ\n\n"
