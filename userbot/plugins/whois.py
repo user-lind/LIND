@@ -13,7 +13,7 @@ TMP_DOWNLOAD_DIRECTORY = Config.TMP_DOWNLOAD_DIRECTORY
 @icssbot.on(admin_cmd(pattern="ايدي(?: |$)(.*)"))
 @icssbot.on(sudo_cmd(pattern="ايدي(?: |$)(.*)", allow_sudo=True))
 async def who(event):
-    ics = await eor(event, "⇆")
+    ics = await eor(event, 𖤐 
     if not os.path.isdir(TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user(event)
