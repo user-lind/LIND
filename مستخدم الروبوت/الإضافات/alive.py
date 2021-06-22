@@ -32,10 +32,10 @@ async def ica(icss):
     if ICSS_IMG:
         ics_c = f"**{ICSS_TEXT}**\n"
         ics_c += f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻 \n"
-        ics_c += f"**{ICSEM} قاعدة البيانات ↫** `{check_sgnirts}`\n"
-        ics_c += f"**{ICSEM} اصدار التليثون  ↫** `{version.__version__}\n`"
-        ics_c += f"**{ICSEM} اصدار اڪسس ↫** `{icsv}`\n"
-        ics_c += f"**{ICSEM} اصدار البايثون ↫** `{python_version()}\n`"
+        ics_c += f"**{ICSEM} قاعدة البيانات 𖡩** `{check_sgnirts}`\n"
+        ics_c += f"**{ICSEM} اصدار التليثون  𖡩** `{version.__version__}\n`"
+        ics_c += f"**{ICSEM} اصدار اڪسس 𖡩** `{icsv}`\n"
+        ics_c += f"**{ICSEM} اصدار البايثون 𖡩** `{python_version()}\n`"
         #        ics_c += f"**{ICSEM} مدة التشغيل ↫** `{icsupt}\n`"
         ics_c += f"**{ICSEM} المستخدم ↫** {mention}\n"
         ics_c += f"**{ICSEM} مطور السورس ↫** [اضغط هنا](t.me/s_x_x_g) 𓆰.\n"
@@ -48,12 +48,12 @@ async def ica(icss):
         await eor(
             icss,
             f"**{ICSS_TEXT}**\n\n"
-            f"**{ICSEM} قاعدة البيانات ↫**  `{check_sgnirts}`\n"
-            f"**{ICSEM} اصدار التليثون  ↫** `{version.__version__}\n`"
-            f"**{ICSEM} اصدار اڪسس ↫** `{icsv}`\n"
-            f"**{ICSEM} اصدار البايثون  ↫** `{python_version()}\n`"
-            f"**{ICSEM} مدة التشغيل ↫** `{icsupt}\n`"
-            f"**{ICSEM} المستخدم ↫** {mention}\n",
+            f"**{ICSEM} قاعدة البيانات 𖡩**  `{check_sgnirts}`\n"
+            f"**{ICSEM} اصدار التليثون  𖡩** `{version.__version__}\n`"
+            f"**{ICSEM} اصدار اڪسس 𖡩** `{icsv}`\n"
+            f"**{ICSEM} اصدار البايثون  𖡩** `{python_version()}\n`"
+            f"**{ICSEM} مدة التشغيل 𖡩** `{icsupt}\n`"
+            f"**{ICSEM} المستخدم 𖡩** {mention}\n",
         )
 
 
